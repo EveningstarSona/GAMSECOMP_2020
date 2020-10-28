@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    [SerializeField] private FieldOfView fieldOfView;
-
     private float moveSpeed = 5f;
+    private float angle;
+
     public Rigidbody2D rb;
 
     Vector2 movement;
@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        //mousePosition = Input.mousePosition;
-        //fieldOfView.SetAimDirection()
     }
 
     void FixedUpdate() {
