@@ -5,6 +5,7 @@ using UnityEngine;
 public class movebot : MonoBehaviour
 {
     public GameObject targetpos;
+    GameObject [] humans;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class movebot : MonoBehaviour
             float newposy = Random.Range(6.6f, 23.0f);
             targetpos.transform.position = new Vector3(newposx, newposy, 0);
         }
+        humans = new GameObject[1];
     }
 }
