@@ -5,14 +5,9 @@ using UnityEngine;
 public class movebot : MonoBehaviour {
 
     public GameObject targetpos;
-<<<<<<< HEAD
     // Start is called before the first frame update
     void Start()
     {
-=======
-
-    void Start() {
->>>>>>> 1ee155a6284c10cfd7e63c250ba3dfd43c35bb2b
         targetpos.transform.SetParent(null);
     }
 
