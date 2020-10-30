@@ -9,6 +9,7 @@ public class Human : MonoBehaviour {
     void Start(){
         GameObject roupas = spawnhumans();
         roupas.transform.SetParent(transform.GetChild(0).transform);
+        roupas.transform.localPosition = Vector3.zero;
     }
 
     public void die() {

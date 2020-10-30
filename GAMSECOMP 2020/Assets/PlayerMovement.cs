@@ -48,8 +48,12 @@ public class PlayerMovement : MonoBehaviour {
                 for(int j=0; j < hit.Length; j++) {
                     float distancia = Vector3.Distance(transform.position, hit[j].collider.transform.position);
                     if(distancia < auxdistancia) {
-                        hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                        if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
+                        if(hit[j].collider.gameObject.tag == "parede"){
+                            auxdistancia = distancia;
+                        }else{
+                            hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                        }
+                        //if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
                     }
                 }
             }
