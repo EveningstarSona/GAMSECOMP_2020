@@ -20,8 +20,25 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            float minDistance = 10000f, distance, nearest = 1;
+            GameObject[] humans = GameObject.FindGameObjectsWithTag("human");
+            for(int i = 0; i < humans.Length; i++) {
+                distance = Vector3.Distance(humans[i].transform.position, transform.position);
+                if(distance < minDistance) {
+                    minDistance = distance;
+                    nearest = i;
+                }
+            }
+            float vampireDistance = Vector3.Distance(GameObject.FindGameObjectsWithTag("vampire")[0].transform.position, transform.position);
+        
+            if(vampireDistance < minDistance && vampireDistance < 5f)
+                win();
+            else if(minDistance < 5f)
+                lose(); 
+        }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-    }
+    }    
 
     private void LateUpdate() {
         for(int i = 0; i < 360; i++){
@@ -34,7 +51,6 @@ public class PlayerMovement : MonoBehaviour {
                         hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                         if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
                     }
-                    //Debug.DrawLine(transform.position, hit[j].point, Color.red);
                 }
             }
             mira.transform.Translate(new Vector3(0.06f*lado, 0, 0), Space.Self);
@@ -47,5 +63,13 @@ public class PlayerMovement : MonoBehaviour {
                 lado = lado*-1;
             }
         }
+    }
+
+    private void win() {
+        Debug.Log("ganhou amigo parabéns");
+    }
+
+    private void lose() {
+        Debug.Log("não foi dessa vez seu ruim");
     }
 }
