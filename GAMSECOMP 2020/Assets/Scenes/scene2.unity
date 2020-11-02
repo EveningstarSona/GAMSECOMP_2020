@@ -611,9 +611,10 @@ GameObject:
   - component: {fileID: 358441382}
   - component: {fileID: 358441384}
   - component: {fileID: 358441383}
+  - component: {fileID: 358441385}
   m_Layer: 0
   m_Name: Laranja
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,6 +677,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &358441385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: laranja
 --- !u!1 &379934296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,9 +2089,10 @@ GameObject:
   - component: {fileID: 1112514089}
   - component: {fileID: 1112514091}
   - component: {fileID: 1112514090}
+  - component: {fileID: 1112514092}
   m_Layer: 0
   m_Name: Cinza
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2140,6 +2155,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1112514092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112514088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: cinza
 --- !u!1 &1135894134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,9 +2179,10 @@ GameObject:
   - component: {fileID: 1135894135}
   - component: {fileID: 1135894137}
   - component: {fileID: 1135894136}
+  - component: {fileID: 1135894138}
   m_Layer: 0
   m_Name: Lilas
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2216,6 +2245,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1135894138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135894134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: lilas
 --- !u!1 &1151932608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,9 +2269,10 @@ GameObject:
   - component: {fileID: 1151932609}
   - component: {fileID: 1151932611}
   - component: {fileID: 1151932610}
+  - component: {fileID: 1151932612}
   m_Layer: 0
   m_Name: Azul
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2292,6 +2335,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1151932612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151932608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: azul
 --- !u!1 &1166436658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,9 +2708,10 @@ GameObject:
   - component: {fileID: 1298234211}
   - component: {fileID: 1298234213}
   - component: {fileID: 1298234212}
+  - component: {fileID: 1298234214}
   m_Layer: 0
   m_Name: Roxa
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2717,6 +2774,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1298234214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298234210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: roxo
 --- !u!1 &1310984071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3434,7 @@ GameObject:
   - component: {fileID: 1769535934}
   m_Layer: 0
   m_Name: Vermelha
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3395,7 +3465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sala: 
+  sala: vermelho
 --- !u!68 &1769535935
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -4177,9 +4247,10 @@ GameObject:
   - component: {fileID: 2130516789}
   - component: {fileID: 2130516791}
   - component: {fileID: 2130516790}
+  - component: {fileID: 2130516792}
   m_Layer: 0
   m_Name: Verde
-  m_TagString: Untagged
+  m_TagString: ignora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4242,6 +4313,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2130516792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130516788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d2df9927f1c54fb59c24a4053ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sala: verde
 --- !u!1001 &1788051321595963897
 PrefabInstance:
   m_ObjectHideFlags: 0
