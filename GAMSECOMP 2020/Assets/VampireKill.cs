@@ -5,8 +5,8 @@ using UnityEngine;
 public class VampireKill : MonoBehaviour {
 
     private float watchRadius = 15f;
-    public float cooldown = 20f;
-    private float baseCooldown = 10f;
+    public float cooldown = 15f;
+    private float baseCooldown = 12f;
     private float killDistance = 5f;
 
     private GameObject[] humans;

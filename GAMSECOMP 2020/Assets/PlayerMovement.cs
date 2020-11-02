@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -70,10 +71,13 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void win() {
-        Debug.Log("ganhou amigo parabéns");
+        staticclass.setwol(2);
+        SceneManager.LoadScene(0);
     }
 
     private void lose() {
-        Debug.Log("não foi dessa vez seu ruim");
+        staticclass.setwol(1);
+        SceneManager.LoadScene(0);
+        //Debug.Log("não foi dessa vez seu ruim");
     }
 }
