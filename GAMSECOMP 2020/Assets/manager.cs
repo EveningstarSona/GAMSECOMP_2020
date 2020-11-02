@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class manager : MonoBehaviour
 {
     public GameObject [] humans;
     public GameObject vampire;
     GameObject humanprefab;
+    GameObject escmenu;
     int nhumans = 10;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +21,20 @@ public class manager : MonoBehaviour
         vampire = Instantiate(humanprefab);
         vampire.tag = "vampire";
         vampire.AddComponent<VampireKill>();
+        escmenu = GameObject.Find("Escmenu");
+        escmenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            escmenu.SetActive(true);
+        }
+
+    }
+
+    public void backtomenu(){
+        SceneManager.LoadScene(0);
     }
 }
