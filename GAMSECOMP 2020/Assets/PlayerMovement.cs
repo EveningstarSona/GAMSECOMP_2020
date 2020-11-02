@@ -78,6 +78,25 @@ public class PlayerMovement : MonoBehaviour {
     private void lose() {
         staticclass.setwol(1);
         SceneManager.LoadScene(0);
-        //Debug.Log("não foi dessa vez seu ruim");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "human" && GameObject.Find("Manager").GetComponent<manager>().onInterrogation) {
+            popup(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "human") {
+            unpopup(other.gameObject);
+        }
+    }
+
+    private void popup(GameObject other) {
+
+    }
+
+    private void unpopup(GameObject other) {
+
     }
 }

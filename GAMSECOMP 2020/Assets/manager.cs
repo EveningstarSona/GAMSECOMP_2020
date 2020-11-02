@@ -10,6 +10,8 @@ public class manager : MonoBehaviour
     GameObject humanprefab;
     GameObject escmenu;
     int nhumans = 10;
+    public bool onInterrogation = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +38,27 @@ public class manager : MonoBehaviour
 
     public void backtomenu(){
         SceneManager.LoadScene(0);
+    }
+
+    public void report() {
+        GameObject[] corpses = GameObject.FindGameObjectsWithTag("corpse");
+        for(int i = 0; i < corpses.Length; i++) {
+            Destroy(corpses[i]);
+        }
+        teleportHumansToSideRoom();
+        onInterrogation = true;
+    }
+
+    public void onInterrogationEnd() {
+        teleportHumansBack();
+        onInterrogation = false;
+    }
+
+    private void teleportHumansToSideRoom() {
+        
+    }
+
+    private void teleportHumansBack() {
+        
     }
 }
