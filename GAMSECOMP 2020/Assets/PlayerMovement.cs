@@ -47,14 +47,16 @@ public class PlayerMovement : MonoBehaviour {
             float auxdistancia = 100;
             for(int k = 0; k < 2; k++){
                 for(int j=0; j < hit.Length; j++) {
-                    float distancia = Vector3.Distance(transform.position, hit[j].collider.transform.position);
-                    if(distancia < auxdistancia) {
-                        if(hit[j].collider.gameObject.tag == "parede"){
-                            auxdistancia = distancia;
-                        }else{
-                            hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    if(hit[j].collider.gameObject.tag != "ignora"){
+                        float distancia = Vector3.Distance(transform.position, hit[j].collider.transform.position);
+                        if(distancia < auxdistancia) {
+                            if(hit[j].collider.gameObject.tag == "parede"){
+                                auxdistancia = distancia;
+                            }else{
+                                hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                            }
+                            //if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
                         }
-                        //if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
                     }
                 }
             }
