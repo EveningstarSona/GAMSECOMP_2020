@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - human
   - parede
+=======
+  - parede
+  - human
+>>>>>>> baf6330c6aba9ed5f9623c3a669c65a1f00f9a9c
   - vampire
   layers:
   - Default

@@ -5,8 +5,8 @@ using UnityEngine;
 public class VampireKill : MonoBehaviour {
 
     private float watchRadius = 15f;
-    public float cooldown = 20f;
-    private float baseCooldown = 10f;
+    public float cooldown = 15f;
+    private float baseCooldown = 12f;
     private float killDistance = 5f;
 
     private GameObject[] humans;
@@ -15,6 +15,7 @@ public class VampireKill : MonoBehaviour {
 
     void Start() {
         humans = GameObject.FindGameObjectsWithTag("human");
+        player = GameObject.Find("Player");
     }
 
     void Update() {
@@ -26,11 +27,13 @@ public class VampireKill : MonoBehaviour {
 
     private void Kill() {
         foreach(GameObject human in humans) {
-            if (Vector3.Distance(human.transform.position, transform.position) <= killDistance) {
-                human.GetComponent<Human>().die();
-                humans = GameObject.FindGameObjectsWithTag("human");
-                cooldown = baseCooldown;
-                break;
+            if(human != null){
+                if (Vector3.Distance(human.transform.position, transform.position) <= killDistance) {
+                    human.GetComponent<Human>().die();
+                    humans = GameObject.FindGameObjectsWithTag("human");
+                    cooldown = baseCooldown;
+                    break;
+                }
             }
         }
     }
