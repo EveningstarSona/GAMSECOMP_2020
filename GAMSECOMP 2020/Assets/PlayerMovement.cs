@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        if(GameObject.Find("PlacesText") != null){
+            if(!GameObject.Find("Manager").GetComponent<manager>().onInterrogation){
+                unpopup();
+            }
+        }
     }
 
     void FixedUpdate() {
@@ -63,6 +68,8 @@ public class PlayerMovement : MonoBehaviour {
                                 hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                             }
                             //if(hit[j].collider.gameObject.tag == "parede") auxdistancia = distancia;
+                        }else{
+                            //hit[j].collider.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                         }
                     }
                 }
@@ -84,7 +91,7 @@ public class PlayerMovement : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-    private void lose() {
+    public void lose() {
         staticclass.setwol(1);
         SceneManager.LoadScene(0);
     }
@@ -96,8 +103,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if(other.gameObject.tag == "human" || other.gameObject.tag == "vampire") {
-            unpopup(other.gameObject);
+        if((other.gameObject.tag == "human" || other.gameObject.tag == "vampire") && GameObject.Find("Manager").GetComponent<manager>().onInterrogation) {
+            unpopup();
         }
     }
 
@@ -106,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
         GameObject.Find("PlacesText").GetComponent<TextMeshProUGUI>().text = other.GetComponent<movebot>().getPlaces();
     }
 
-    private void unpopup(GameObject other) {
+    private void unpopup() {
         places.SetActive(false);
         GameObject.Find("PlacesText").GetComponent<TextMeshProUGUI>().text = "";
     }

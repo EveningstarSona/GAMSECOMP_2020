@@ -5,7 +5,7 @@ using UnityEngine;
 public class VampireKill : MonoBehaviour {
 
     private float watchRadius = 15f;
-    public float cooldown = 15f;
+    public float cooldown = 30f;
     private float baseCooldown = 12f;
     private float killDistance = 5f;
     public bool canKill = true;
@@ -33,6 +33,7 @@ public class VampireKill : MonoBehaviour {
                     human.GetComponent<Human>().die();
                     humans = GameObject.FindGameObjectsWithTag("human");
                     cooldown = baseCooldown;
+                    GameObject.Find("Manager").GetComponent<manager>().morreualguem();
                     break;
                 }
             }

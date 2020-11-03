@@ -28,7 +28,7 @@ public class Human : MonoBehaviour {
         GameObject camiseta = Instantiate(go);
         camiseta.transform.SetParent(roupas.transform);
         camiseta.AddComponent<SpriteRenderer>();
-        int camisetacor = Random.Range(1,6);
+        int camisetacor = Random.Range(1,14);
         camiseta.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("chars/camiseta/"+ camisetacor.ToString());
         //Cabelo
         GameObject cabelo = Instantiate(go);

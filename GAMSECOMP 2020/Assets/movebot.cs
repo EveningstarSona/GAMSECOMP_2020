@@ -61,4 +61,11 @@ public class movebot : MonoBehaviour {
         }
         return aux;
     }
+
+    public void resetlista(){
+        for(int i = 0; i< maxlugares; i++){
+            lugares[i] = "";
+        }
+        arraypos = 0;
+    }
 }

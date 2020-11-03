@@ -14,6 +14,7 @@ public class manager : MonoBehaviour {
     int nhumans = 10;
     public bool onInterrogation = false;
     private int vampirePosition;
+    GameObject audiomanager;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,6 +29,7 @@ public class manager : MonoBehaviour {
         escmenu = GameObject.Find("Escmenu");
         escmenu.SetActive(false);
         vampirePosition = Random.Range(0, nhumans + 1);
+        audiomanager = GameObject.Find("AudioManager");
     }
 
     // Update is called once per frame
@@ -37,6 +39,15 @@ public class manager : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.E) && onInterrogation) {
              onInterrogationEnd();
+        }
+        int humancont = 0;
+        for(int i = 0; i< nhumans; i++){
+            if(humans[i] != null){
+                humancont++;
+            }
+        }
+        if(humancont < 4){
+            GameObject.Find("Player").GetComponent<PlayerMovement>().lose();
         }
 
     }
@@ -68,17 +79,20 @@ public class manager : MonoBehaviour {
                 vampire.GetComponent<TurnBotOff>().visible = true;
                 vampire.GetComponent<VampireKill>().canKill = true;
                 vampire.transform.GetChild(0).GetComponent<SpriteRenderer>().material = litMaterial;
+                vampire.transform.GetChild(0).gameObject.SetActive(true);
                 if (humans[i] != null) {
                     humans[i].transform.position = GameObject.Find("ponto (" + humans.Length + ")").transform.position;
                     humans[i].GetComponent<IAstarAI>().canMove = false;
                     humans[i].GetComponent<TurnBotOff>().visible = true;
                     humans[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = litMaterial;
+                    humans[i].transform.GetChild(0).gameObject.SetActive(true);
                 }
             } else if(humans[i] != null) {
                 humans[i].transform.position = GameObject.Find("ponto (" + i + ")").transform.position;
                 humans[i].GetComponent<IAstarAI>().canMove = false;
                 humans[i].GetComponent<TurnBotOff>().visible = true;
                 humans[i].transform.GetChild(0).GetComponent<SpriteRenderer>().material = litMaterial;
+                humans[i].transform.GetChild(0).gameObject.SetActive(true);
             }
         }
     }
@@ -97,5 +111,20 @@ public class manager : MonoBehaviour {
         vampire.GetComponent<TurnBotOff>().visible = false;
         vampire.transform.GetChild(0).GetComponent<SpriteRenderer>().material = unlitMaterial;
         vampire.GetComponent<VampireKill>().resetCooldown();
+        for(int i = 0; i< nhumans; i++){
+            if(humans[i] != null){
+                humans[i].GetComponent<movebot>().resetlista();
+            }
+        }
+        vampire.GetComponent<movebot>().resetlista();
+    }
+
+    public void morreualguem(){
+        //audiomanager.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("morreu");
+        audiomanager.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("morreu"), 1.0F);
+    }
+
+    public void mute(){
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().mute = !GameObject.Find("Main Camera").GetComponent<AudioSource>().mute;
     }
 }
