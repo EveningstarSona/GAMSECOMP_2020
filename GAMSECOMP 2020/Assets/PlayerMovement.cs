@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -10,10 +11,16 @@ public class PlayerMovement : MonoBehaviour {
     private float visionDistance = 15f;
     private int lado = 1;
 
+    private GameObject places;
     public GameObject mira;
     public Rigidbody2D rb;
 
     Vector2 movement;
+
+    void Start() {
+        places = GameObject.Find("Places");
+        places.SetActive(false);
+    }
 
     void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -83,22 +90,24 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "human" && GameObject.Find("Manager").GetComponent<manager>().onInterrogation) {
+        if((other.gameObject.tag == "human" || other.gameObject.tag == "vampire")&& GameObject.Find("Manager").GetComponent<manager>().onInterrogation) {
             popup(other.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if(other.gameObject.tag == "human") {
+        if(other.gameObject.tag == "human" || other.gameObject.tag == "vampire") {
             unpopup(other.gameObject);
         }
     }
 
     private void popup(GameObject other) {
-
+        places.SetActive(true);
+        GameObject.Find("PlacesText").GetComponent<TextMeshProUGUI>().text = other.GetComponent<movebot>().getPlaces();
     }
 
     private void unpopup(GameObject other) {
-
+        places.SetActive(false);
+        GameObject.Find("PlacesText").GetComponent<TextMeshProUGUI>().text = "";
     }
 }

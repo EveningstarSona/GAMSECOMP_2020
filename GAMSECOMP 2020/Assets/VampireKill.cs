@@ -8,6 +8,7 @@ public class VampireKill : MonoBehaviour {
     public float cooldown = 15f;
     private float baseCooldown = 12f;
     private float killDistance = 5f;
+    public bool canKill = true;
 
     private GameObject[] humans;
 
@@ -19,7 +20,7 @@ public class VampireKill : MonoBehaviour {
     }
 
     void Update() {
-        if(cooldown == 0f && Vector3.Distance(player.transform.position, transform.position) > watchRadius ) {
+        if(canKill && cooldown == 0f && Vector3.Distance(player.transform.position, transform.position) > watchRadius ) {
             Kill();
         }
         cooldown = Mathf.Max(0f, cooldown - 1f * Time.deltaTime);
@@ -36,5 +37,10 @@ public class VampireKill : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void resetCooldown() {
+        cooldown = baseCooldown;
+        canKill = true;
     }
 }

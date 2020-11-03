@@ -51,4 +51,14 @@ public class movebot : MonoBehaviour {
             arraypos++;
         }
     }
+
+    public string getPlaces() {
+        string aux, arrow = " -> ";
+        if(lugares[maxlugares - 1] == lugares[maxlugares - 2]) {
+            aux = lugares[maxlugares - 4] + arrow + lugares[maxlugares - 3] + arrow + lugares[maxlugares - 2];
+        } else {
+            aux = lugares[maxlugares - 3] + arrow + lugares[maxlugares - 2] + arrow + lugares[maxlugares - 1];
+        }
+        return aux;
+    }
 }
